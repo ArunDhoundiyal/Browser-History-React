@@ -81,7 +81,6 @@ class InitialBrowserHistory extends Component {
   state = {browserHistory: initialHistoryList, search: ''}
 
   onClickInput = event => {
-    console.log(event.target.value)
     this.setState({search: event.target.value})
   }
 
@@ -98,6 +97,11 @@ class InitialBrowserHistory extends Component {
     const checkUserInput = browserHistory.filter(eachList =>
       eachList.title.toLowerCase().includes(search),
     )
+
+    let displayNoHistory
+    if (browserHistory.length === 0 || checkUserInput.length === 0) {
+      displayNoHistory = 'There is no history to show'
+    }
 
     return (
       <div className="bg-container">
@@ -125,6 +129,7 @@ class InitialBrowserHistory extends Component {
             />
           </div>
         </div>
+        <p className="displayNoHistory">{displayNoHistory}</p>
         <ul className="box-container">
           {checkUserInput.map(historyItem => (
             <BrowserHistory

@@ -4,6 +4,9 @@
   background-size: cover;
   flex-wrap: wrap;
   overflow: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .input-history-search-container {
@@ -59,4 +62,7 @@
   flex-direction: column;
   list-style-type: none;
   flex-wrap: wrap;
+}
+.displayNoHistory {
+  text-align: center;
 }
